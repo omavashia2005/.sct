@@ -12,9 +12,17 @@ Your project needs no `.env` file.
 
 Demo video: https://youtu.be/kQwLTeVe2OE
 
+## Branches
+
+This is the `experimental` branch. It has all the features of `main`, and also experimental features that are not stable.
+The experimental features include [mock Wallet cards](docs/wallet-cards.md) (sharing cards).
+The `main` branch is the stable build. It does not have sharing cards.
+This branch has no DMG release. To use an experimental build, build it from source. See [Quick setup](#quick-setup).
+
 ## Download
 
 Each push to `main` builds an Apple Silicon DMG. Get it from the [latest release](https://github.com/omavashia2005/.sct/releases/tag/latest).
+The DMG contains the stable `main` build. It does not contain the experimental features of this branch.
 The app has an ad-hoc signature and no notarization. Thus macOS blocks the first start.
 Copy `sct.app` to Applications. Then right-click the app and select **Open**, or run:
 

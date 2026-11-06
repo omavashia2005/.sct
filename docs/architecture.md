@@ -5,6 +5,8 @@ These operations include vault access, Keychain, encryption, child processes, sh
 The sandboxed renderer calls a narrow preload bridge and receives metadata only.
 Each Mac keeps its own vault, private keys, cached activity, and pending messages. No local server or separate daemon runs.
 
+This document describes the `experimental` branch. The `main` branch is the stable build. It does not have [mock Wallet cards](#mock-wallet-cards).
+
 ## Local runtime injection
 
 The project registry maps a project to its source folder. The vault root resolves `.sct/[project-name]/secrets.sct`.

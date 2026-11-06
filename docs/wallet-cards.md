@@ -5,6 +5,7 @@ The card is a generic Wallet pass with fake demonstration data. It is not a paym
 The recipient needs no .sct app and no paid Apple Developer membership.
 
 This is a post-MVP experiment. See issue #40.
+This feature is only on the `experimental` branch. The stable `main` branch does not have it.
 
 ## Signing service
 
