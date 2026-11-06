@@ -3,9 +3,8 @@ import type { SecretInput, SecretMetadata, SecretReference, SecretUpdate } from 
 import type { SharingAPI } from './sharing'
 import type { RelayAPI } from './relay'
 import type { AgentAPI } from './agent'
-import type { CardsAPI } from './cards'
 
-export interface SctAPI extends SharingAPI, RelayAPI, AgentAPI, CardsAPI {
+export interface SctAPI extends SharingAPI, RelayAPI, AgentAPI {
   listProjects: () => Promise<Project[]>
   pickDirectory: () => Promise<string | null>
   addProject: (input: ProjectInput) => Promise<Project>

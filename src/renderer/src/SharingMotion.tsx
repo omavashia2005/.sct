@@ -17,10 +17,8 @@ export type HandoffStage = 'prepare' | 'wait' | 'handed' | 'delivered' | 'receiv
 
 export type HandoffRoute = 'airdrop' | 'relay'
 
-// A mock Wallet card travels as a credit card. A device card shows the real device name and fingerprint.
-// Secrets travel as a key.
+// A device card shows the real device name and fingerprint. Secrets travel as a key.
 export type HandoffObject =
-  | { shape: 'card'; label: string; title: ReactNode; detail: ReactNode; back: string }
   | { shape: 'device'; name: string; fingerprint: string }
   | { shape: 'key'; title: ReactNode; detail: ReactNode }
 
@@ -57,11 +55,10 @@ function stillFrame(stage: HandoffStage, via: HandoffRoute): Frame {
 // A modal shows an object that travels from the sender to the recipient. It locks while work is in progress
 // and closes by itself after the object goes into the AirDrop rings or lands. A relay transfer can wait in the
 // queue for a long time, so the user can close the modal while the relay hub holds the object.
-export function HandoffModal({ heading, from, to, toDevice = 'mac', via = 'airdrop', stage, object, onDone }: {
+export function HandoffModal({ heading, from, to, via = 'airdrop', stage, object, onDone }: {
   heading: string
   from: string
   to: string
-  toDevice?: 'mac' | 'phone'
   via?: HandoffRoute
   stage: HandoffStage
   object: HandoffObject
@@ -109,7 +106,7 @@ export function HandoffModal({ heading, from, to, toDevice = 'mac', via = 'airdr
           {ringRadii.map((radius) => <circle key={radius} className="handoff-ring" r={radius} />)}
         </svg>}
         <span className="handoff-mac handoff-screen handoff-screen-from" />
-        <span className={`handoff-${toDevice} handoff-screen handoff-screen-to`} />
+        <span className="handoff-mac handoff-screen handoff-screen-to" />
         {via === 'relay' && <span className="handoff-hub">
           <svg viewBox="0 0 35 32">{relayMark.map((path) => <path key={path} d={path} fillRule="evenodd" />)}</svg>
         </span>}
@@ -131,22 +128,6 @@ export function HandoffModal({ heading, from, to, toDevice = 'mac', via = 'airdr
 }
 
 function HandoffObjectFaces({ object }: { object: HandoffObject }) {
-  if (object.shape === 'card') return <>
-    <div className="handoff-face handoff-front">
-      <span className="handoff-kind">{object.label}</span>
-      <span className="handoff-chip" />
-      <span className="handoff-number">•••• •••• •••• ••••</span>
-      <span className="handoff-bottom">
-        <span className="handoff-title">{object.title}</span>
-        <span className="handoff-detail">{object.detail}</span>
-      </span>
-    </div>
-    <div className="handoff-face handoff-back">
-      <span className="handoff-stripe" />
-      <span className="handoff-signature" />
-      <span className="handoff-back-text">{object.back}</span>
-    </div>
-  </>
   if (object.shape === 'device') return <>
     <div className="handoff-face handoff-front handoff-device">
       <span className="handoff-kind">.sct device card</span>

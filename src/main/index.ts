@@ -14,7 +14,6 @@ import { AgentAccess } from './agent-access'
 import { identifyCaller } from './caller'
 import { streamEnvironment } from './runtime'
 import { Sharing } from './sharing'
-import { Cards } from './cards'
 import type { Relay } from './relay-connection'
 import type { Reply } from '../shared/api'
 
@@ -194,7 +193,6 @@ app.whenReady().then(async () => {
     return root ? vault.moveTo(root) : null
   })
   registerSharing(service)
-  registerCards(new Cards(join(app.getPath('userData'), 'cards')))
   await createWindow()
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) void createWindow().catch(reportStartupError)
@@ -317,15 +315,6 @@ function registerSharing(service: Sharing): void {
   app.on('will-quit', () => {
     rmSync(join(app.getPath('userData'), 'sharing', 'outbox'), { recursive: true, force: true })
   })
-}
-
-function registerCards(cards: Cards): void {
-  // The AirDrop picker reports no delivery. Signed passes stay in the outbox until the app quits or starts again.
-  const outbox = join(app.getPath('userData'), 'cards', 'outbox')
-  rmSync(outbox, { recursive: true, force: true })
-  app.on('will-quit', () => rmSync(outbox, { recursive: true, force: true }))
-  handle('cards:create', (input) => cards.create(input))
-  handle('cards:share', async (id) => sendToNearbyMac(await cards.passFile(id)))
 }
 
 function sendToNearbyMac(path: string): Promise<void> {
