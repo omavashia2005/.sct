@@ -88,16 +88,28 @@ A process that moves to another session stays under the control of the program t
 
 ## TypeScript SDK: load inside your code
 
-The dependency-free [`@sct/env` SDK](../packages/env/README.md) loads the same values inside your process.
+The dependency-free [`@sct/env` SDK](../sdk/README.md) loads the same values inside your process.
 It keeps `process.env` current without a restart.
 
-- Build the SDK with `bun run build:sdk`.
-- Install it with `bun add /absolute/path/to/.sct/packages/env`.
+- The source is in the [`sdk/`](../sdk/) folder at the repository root.
+- Install it with `npm install @sct/env` or `bun add @sct/env`.
+  The package is not on npm yet. Until the first release, run `bun run build:sdk` in the .sct folder.
+  Then run `bun add /absolute/path/to/.sct/sdk` in your application folder.
 - It needs macOS, Node.js 22.18 or later or Bun, and the installed `sct` command on `PATH`.
 
 The SDK starts a signed helper through private stdin and stdout pipes. It receives only the values of the selected project.
 It opens no local server and uses no network service.
 The SDK guide tells you how to write the bootstrap file, use `onChange` and `onError`, and stop updates.
+
+### Publish the SDK to npm
+
+The **Publish SDK** workflow (`.github/workflows/publish-sdk.yml`) publishes the `sdk/` folder to npm with provenance.
+It starts only when a maintainer runs it manually from the **Actions** tab.
+Before the first publish, do these steps:
+
+1. Get ownership of the `@sct` scope on npm.
+2. Add an npm automation token as the `NPM_TOKEN` repository secret.
+3. Set a new `version` in `sdk/package.json`. npm rejects a version that it published before.
 
 ## Check your existing project
 

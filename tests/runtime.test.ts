@@ -10,7 +10,7 @@ import type { TestContext } from 'node:test'
 import { ProjectStore } from '../src/main/projects.ts'
 import { Vault } from '../src/main/vault.ts'
 import { installCli } from '../scripts/install-cli.ts'
-import { decodeMessage } from '../packages/env/src/protocol.ts'
+import { decodeMessage } from '../sdk/src/protocol.ts'
 
 async function fixture(t: TestContext) {
   const root = await realpath(await mkdtemp(join(tmpdir(), 'sct-runtime-')))
@@ -131,7 +131,7 @@ test('the SDK loads and refreshes values through the real vault without holding 
   await chmod(join(root, 'bin', 'sct'), 0o700)
   await writeFile(join(project.directory, 'app.ts'), `
     import assert from 'node:assert/strict'
-    import { loadEnv } from ${JSON.stringify(join(__dirname, '../packages/env/src/index.ts'))}
+    import { loadEnv } from ${JSON.stringify(join(__dirname, '../sdk/src/index.ts'))}
     const keepAlive = setInterval(() => {}, 1000)
     const stop = await loadEnv({ onChange() {
       if (process.env.TOKEN === 'first-fixture') console.log('recovered-ready')
@@ -170,7 +170,7 @@ test('the SDK loads and refreshes values through the real vault without holding 
   await waitFor('deleted-ready')
   assert.equal(await exited, 0)
   await writeFile(join(project.directory, 'once.ts'), `
-    import { loadEnv } from ${JSON.stringify(join(__dirname, '../packages/env/src/index.ts'))}
+    import { loadEnv } from ${JSON.stringify(join(__dirname, '../sdk/src/index.ts'))}
     await loadEnv()
     console.log('finished-ready')
   `)

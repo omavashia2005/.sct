@@ -217,7 +217,7 @@ test('manages secrets per project without rendering stored values', async () => 
     await mkdir(join(root, 'sdk-bin'))
     await writeFile(join(root, 'sdk-bin', 'sct'), '#!/bin/sh\nexec "$SCT_TEST_ELECTRON" "$SCT_TEST_ENTRY" "$SCT_TEST_DATA" "$@"\n', { mode: 0o700 })
     await writeFile(join(root, 'sdk.mjs'), `
-      import { loadEnv } from ${JSON.stringify(pathToFileURL(join(__dirname, '../packages/env/dist/index.js')).href)}
+      import { loadEnv } from ${JSON.stringify(pathToFileURL(join(__dirname, '../sdk/dist/index.js')).href)}
       import assert from 'node:assert/strict'
       import { createHash } from 'node:crypto'
       const alive = setInterval(() => {}, 1000)

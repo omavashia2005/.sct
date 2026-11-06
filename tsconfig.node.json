@@ -5,5 +5,5 @@
     "resolveJsonModule": true,
     "types": ["node", "electron-vite/node"]
   },
-  "include": ["electron.vite.config.ts", "playwright.config.ts", "scripts/**/*.ts", "demo/**/*.ts", "src/main/**/*.ts", "src/preload/**/*.ts", "src/shared/**/*.ts", "src/renderer/src/env.d.ts", "tests/**/*.ts", "packages/env/src/**/*.ts"]
+  "include": ["electron.vite.config.ts", "playwright.config.ts", "scripts/**/*.ts", "demo/**/*.ts", "src/main/**/*.ts", "src/preload/**/*.ts", "src/shared/**/*.ts", "src/renderer/src/env.d.ts", "tests/**/*.ts", "sdk/src/**/*.ts"]
 }

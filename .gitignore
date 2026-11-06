@@ -1,7 +1,7 @@
 node_modules/
 out/
 dist/
-packages/env/dist/
+sdk/dist/
 test-results/
 playwright-report/
 .DS_Store

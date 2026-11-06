@@ -12,6 +12,27 @@ Your project needs no `.env` file.
 
 Demo video: https://youtu.be/kQwLTeVe2OE
 
+## SDK: `@sct/env`
+
+The [`@sct/env` SDK](sdk/README.md) loads the secrets of a project into `process.env` in Node.js 22.18 or later and Bun on macOS.
+It applies saved changes without a restart. The source is in the [`sdk/`](sdk/) folder.
+
+```sh
+npm install @sct/env   # Or: bun add @sct/env
+```
+
+The package is not on npm yet. Until the first release, build it from this repository. See [install from the repository](sdk/README.md#install).
+
+```ts
+// bootstrap.ts
+import { loadEnv } from '@sct/env'
+
+await loadEnv()
+await import('./server.js')
+```
+
+The SDK needs the .sct app and the `sct` command. See the [SDK guide](sdk/README.md).
+
 ## Branches
 
 `main` is the stable build. Each DMG release comes from `main`.
@@ -54,23 +75,7 @@ Then, in the app, add a project folder and its secrets. Run the project from its
 sct run -- bun run dev
 ```
 
-To load secrets in code, build the SDK and add it to your application. The SDK is not on npm yet.
-
-```sh
-bun run build:sdk
-bun add /absolute/path/to/.sct/packages/env   # Run this command in your application folder.
-```
-
-Load the secrets before the application imports:
-
-```ts
-import { loadEnv } from '@sct/env'
-
-await loadEnv()
-await import('./server.js')
-```
-
-See the [SDK guide](packages/env/README.md).
+To load secrets in your code instead, use the [SDK](#sdk-sctenv).
 
 ## Share through the relay
 
@@ -128,7 +133,7 @@ Rules:
 
 ## Docs
 
-- [Runtime injection](docs/runtime-injection.md) and the [`@sct/env` SDK](packages/env/README.md)
+- [Runtime injection](docs/runtime-injection.md) and the [`@sct/env` SDK](sdk/README.md)
 - [Sharing](docs/sharing.md) and [relay setup](docs/relay.md)
 - [Agent Access](docs/agent-access.md) and the [Claude Code demo project](examples/claude-code/README.md)
 - [Architecture](docs/architecture.md), [vault storage](docs/storage.md), and the [glossary](docs/glossary.md)

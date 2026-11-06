@@ -1,0 +1,16 @@
+{
+  "name": "@sct/env",
+  "version": "0.1.0",
+  "description": "Load and refresh local .sct project secrets in Node.js and Bun.",
+  "keywords": ["sct", "secrets", "env", "environment-variables", "process-env", "keychain", "macos"],
+  "homepage": "https://github.com/omavashia2005/.sct/tree/main/sdk#readme",
+  "bugs": { "url": "https://github.com/omavashia2005/.sct/issues" },
+  "repository": { "type": "git", "url": "git+https://github.com/omavashia2005/.sct.git", "directory": "sdk" },
+  "license": "MIT",
+  "type": "module",
+  "exports": { ".": { "types": "./dist/index.d.ts", "import": "./dist/index.js" } },
+  "files": ["dist/index.js", "dist/index.d.ts", "README.md", "LICENSE"],
+  "engines": { "node": ">=22.18.0" },
+  "os": ["darwin"],
+  "publishConfig": { "access": "public" }
+}
