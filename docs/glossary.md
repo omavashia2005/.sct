@@ -53,15 +53,13 @@ The docs use some words with one fixed meaning:
 
 **Transfer package** — A `.sct-transfer` file. It holds selected secrets, encrypted and signed for one verified device. It expires after 24 hours.
 
-**AirDrop** — The macOS transport for transfer packages, device cards, and mock Wallet cards. .sct opens only the AirDrop picker.
+**AirDrop** — The macOS transport for transfer packages and device cards. .sct opens only the AirDrop picker.
 
 **Relay** — Cloud-hosted SpacetimeDB that persists and routes ciphertext. It never receives the keys that decrypt payloads. See [relay setup](relay.md).
 
 **Subscription** — A relay connection that receives the rows that server-side authorization permits.
 
 **TLS** — Protects each relay connection. Payload encryption separately protects contents from the relay.
-
-**Mock Wallet card** — A generic Apple Wallet pass with fake data. walletmcppass.com signs it. .sct sends it to an iPhone through AirDrop. See [mock Wallet cards](wallet-cards.md).
 
 ## Relay delivery
 

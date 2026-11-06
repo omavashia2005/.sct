@@ -44,8 +44,6 @@ const api: SctAPI = {
     ipcRenderer.on('sharing:changed', changed)
     return () => { ipcRenderer.removeListener('sharing:changed', changed) }
   },
-  createMockCard: (input) => invoke<string>('cards:create', input),
-  shareMockCard: (id) => invoke<void>('cards:share', id),
   getRelayState: () => invoke<RelayState>('relay:state'),
   onRelayChanged: (listener) => {
     const changed = () => listener()

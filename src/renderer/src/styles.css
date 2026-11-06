@@ -243,9 +243,7 @@ select:disabled { color: var(--color-muted); cursor: not-allowed; opacity: 0.55;
   input, select { font-size: 16px; }
 }
 
-.card-notice { margin: 24px 0 0; padding: 12px; border: 1px solid var(--color-accent); color: var(--color-accent); font-size: 15px; }
-
-/* The card moves with transform only. --x runs from 0 (sender slot) to 1 (recipient slot) across the stage width. */
+/* The object moves with transform only. --x runs from 0 (sender slot) to 1 (recipient slot) across the stage width. */
 .handoff-dialog { width: 100%; max-width: 760px; border: 1px solid var(--color-rule-2); border-radius: 0; background: var(--color-paper-2); color: var(--color-ink); padding: 28px; }
 .handoff-dialog:focus-visible, .import-dialog:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
 .handoff-dialog::backdrop, .import-dialog::backdrop { background: var(--color-scrim); }
@@ -264,9 +262,6 @@ select:disabled { color: var(--color-muted); cursor: not-allowed; opacity: 0.55;
 /* A laptop: the screen, a bezel around it, and a keyboard deck with a hinge notch below it. */
 .handoff-mac::before { content: ""; position: absolute; inset: -9px; z-index: -1; border: 1px solid var(--color-rule-2); background: var(--color-paper-2); }
 .handoff-mac::after { content: ""; position: absolute; top: calc(100% + 9px); left: -24px; right: -24px; height: 10px; border: 1px solid var(--color-rule-2); background: linear-gradient(var(--color-rule-2), var(--color-rule-2)) center top / 44px 3px no-repeat, var(--color-paper-3); }
-/* A phone: a tall screen in a frame with a speaker slot. The object never lands on it, because AirDrop gives no delivery report. */
-.handoff-phone { top: calc(var(--top) + var(--card-h) / 2 - 64px); right: calc(var(--inset) + var(--card-w) / 2 - 34px); width: 68px; height: 128px; border: 6px solid var(--color-paper-3); outline: 1px solid var(--color-rule-2); }
-.handoff-phone::before { content: ""; position: absolute; top: 4px; left: 50%; width: 18px; height: 3px; transform: translateX(-50%); background: var(--color-rule-2); }
 .handoff-rings { position: absolute; z-index: -2; top: calc(var(--top) + var(--card-h) / 2 - 184px); left: calc(50% - 184px); width: 368px; height: 368px; overflow: visible; pointer-events: none; }
 .handoff-ring { fill: none; stroke: var(--color-accent); stroke-width: 1px; vector-effect: non-scaling-stroke; opacity: 0.2; }
 .handoff-hub { position: absolute; top: calc(var(--top) + var(--card-h) / 2 - 32px); left: calc(50% - 32px); display: grid; place-items: center; width: 64px; height: 64px; border: 1px solid var(--color-rule-2); background: var(--color-paper); }
@@ -289,11 +284,8 @@ select:disabled { color: var(--color-muted); cursor: not-allowed; opacity: 0.55;
 .handoff-key-text > span { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .handoff-face { position: absolute; inset: 0; border: 1px solid var(--color-accent); background: var(--color-paper-3); backface-visibility: hidden; overflow: hidden; }
 .handoff-front { display: grid; grid-template-rows: auto auto 1fr auto; gap: 8px; padding: 8px 12px; }
-.handoff-front > span, .handoff-bottom > span { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.handoff-front > span { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .handoff-kind { color: var(--color-accent); font-size: 9px; }
-.handoff-chip { width: 26px; height: 19px; border: 1px solid var(--color-ink-2); background: linear-gradient(var(--color-ink-2), var(--color-ink-2)) center / 100% 1px no-repeat, linear-gradient(var(--color-ink-2), var(--color-ink-2)) center / 1px 100% no-repeat; }
-.handoff-number { align-self: center; color: var(--color-ink-2); font-size: 11px; font-stretch: var(--stretch-display); }
-.handoff-bottom { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; min-width: 0; }
 .handoff-title { color: var(--color-ink); font-size: 12px; font-weight: 500; }
 .handoff-detail { flex-shrink: 1; color: var(--color-ink-2); font-size: 9px; }
 .handoff-detail .sharing-scramble { color: inherit; }
@@ -303,8 +295,6 @@ select:disabled { color: var(--color-muted); cursor: not-allowed; opacity: 0.55;
 .handoff-device-back { justify-content: center; border-left-width: 4px; padding: 12px; }
 .handoff-device-back .handoff-back-text { margin: 0; padding: 0; white-space: normal; }
 .handoff-back { display: flex; flex-direction: column; gap: 8px; transform: rotateY(180deg); padding-bottom: 8px; }
-.handoff-stripe { height: 22px; margin-top: 12px; background: var(--color-rule-2); }
-.handoff-signature { height: 14px; margin-inline: 12px; width: 60%; background: repeating-linear-gradient(90deg, var(--color-rule) 0 4px, var(--color-paper) 4px 8px); }
 .handoff-back-text { margin-top: auto; padding-inline: 12px; color: var(--color-ink-2); font-size: 9px; }
 @media (max-width: 700px) {
   .handoff { --card-w: 128px; --card-h: 81px; --inset: 26px; }
