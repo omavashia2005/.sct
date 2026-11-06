@@ -4,36 +4,48 @@ Load a registered project's `.sct` secrets into `process.env` and keep them curr
 This package has no runtime dependencies. It supports server-side TypeScript on macOS with Node.js 22.18 or later and Bun.
 It requires the installed `sct` command. Keychain access and decryption stay in the signed Electron main process.
 
-## Install from this repository
-
-Build the package in the .sct repository:
+## Install
 
 ```sh
-bun run build:sdk
+npm install @sct/env
 ```
 
-Install it in your application:
+Or, with Bun:
 
 ```sh
-bun add /absolute/path/to/.sct/sdk
+bun add @sct/env
 ```
 
-The package is not published to npm yet. Use this local installation until a release exists.
-Register your application's source folder and save its secrets in the .sct desktop app.
-Follow the [CLI setup](../docs/runtime-injection.md) once to make `sct` available on `PATH`.
+To use the source from the [.sct repository](https://github.com/omavashia2005/.sct) instead of the npm release, build it in a clone of the repository:
 
-## Load before application imports
+```sh
+bun run build:sdk                        # Run this command in the .sct folder.
+bun add /absolute/path/to/.sct/sdk       # Run this command in your application folder.
+```
+
+## Before you start
+
+1. Install the .sct desktop app.
+2. Follow the [CLI setup](https://github.com/omavashia2005/.sct/blob/main/docs/runtime-injection.md) one time to put `sct` on `PATH`.
+3. In the app, register the source folder of your application and save its secrets.
+
+## Quick example
 
 ```ts
+// bootstrap.ts
 import { loadEnv } from '@sct/env'
 
 await loadEnv()
 await import('./server.js')
 ```
 
+Start your application from `bootstrap.ts`. Then `process.env` contains the saved secrets of the project. The SDK applies saved changes without a restart.
+
+## Load before application imports
+
 Use a bootstrap file so application modules evaluate after the first load.
 Static imports evaluate before the calling module's body. Writing `await loadEnv()` above a static import does not delay that import.
-Launch from the registered folder or a subfolder. The SDK selects the nearest registered parent folder.
+Start the application from the registered folder or a subfolder. The SDK selects the nearest registered parent folder.
 Use `await loadEnv({ project: 'My project' })` to select an exact registered name from another folder.
 
 Saved additions, updates, and deletions reach `process.env` within approximately 500 milliseconds while storage is available.
