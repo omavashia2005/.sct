@@ -12,6 +12,12 @@ Your project needs no `.env` file.
 
 Demo video: https://youtu.be/kQwLTeVe2OE
 
+## Branches
+
+`main` is the stable build. Each DMG release comes from `main`.
+The [`experimental`](https://github.com/omavashia2005/.sct/tree/experimental) branch has all the features of `main`, and also experimental features, such as mock Wallet cards (sharing cards).
+The `experimental` branch has no DMG release. To try it, build it from source.
+
 ## Download
 
 Each push to `main` builds an Apple Silicon DMG. Get it from the [latest release](https://github.com/omavashia2005/.sct/releases/tag/latest).

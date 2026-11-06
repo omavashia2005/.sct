@@ -69,11 +69,11 @@ If a secret name already exists in the destination, the import fails before any 
 
 ## Send and receive animations
 
-A modal shows each send and each arrival. The **Cards** screen uses the same modal. See [mock Wallet cards](wallet-cards.md).
+A modal shows each send and each arrival.
 
-- A drawing of the sender's Mac is on the left. A drawing of the recipient is on the right: a Mac, or an iPhone for a Wallet card.
+- A drawing of the sender's Mac is on the left. A drawing of the recipient's Mac is on the right.
 - An object moves between the two drawings. A device card shows the device name and fingerprint.
-  Secrets move as a key. A Wallet card moves as a credit card.
+  Secrets move as a key.
 - An AirDrop send shows concentric rings in the middle. macOS reports no delivery.
   Thus the object goes into the rings and never lands on the recipient. The caption tells you that macOS does not confirm delivery.
 - A relay send shows a SpacetimeDB hub in the middle. The key waits in the hub while the transfer is in the queue.

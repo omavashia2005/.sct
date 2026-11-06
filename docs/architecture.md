@@ -5,6 +5,8 @@ These operations include vault access, Keychain, encryption, child processes, sh
 The sandboxed renderer calls a narrow preload bridge and receives metadata only.
 Each Mac keeps its own vault, private keys, cached activity, and pending messages. No local server or separate daemon runs.
 
+This document describes the stable `main` branch. Experimental features, such as mock Wallet cards, are on the `experimental` branch.
+
 ## Local runtime injection
 
 The project registry maps a project to its source folder. The vault root resolves `.sct/[project-name]/secrets.sct`.
@@ -30,12 +32,6 @@ See [Agent Access](agent-access.md).
 
 The AirDrop sharing flow encrypts selected secrets for one verified device and sends the file through AirDrop.
 See [sharing](sharing.md). Relay sharing below is the second transport. The **Relay** tab of **Sharing** uses it.
-
-## Mock Wallet cards
-
-The main process sends fake card fields to walletmcppass.com and downloads the signed pass.
-It checks the pass and opens the AirDrop picker for an iPhone. This flow uses no secret, device key, or relay.
-See [mock Wallet cards](wallet-cards.md).
 
 ## Relay sharing (Phase 2)
 
@@ -334,7 +330,7 @@ These issues have no direct or indirect relay dependency.
 |---|---|---|---|---|
 | 4.1 | [#22](https://github.com/omavashia2005/.sct/issues/22) | Add AirDrop transport for encrypted handoffs | #20, #15, #16, #18 | Open |
 | 4.2 | [#23](https://github.com/omavashia2005/.sct/issues/23) | Add Factory integration through the narrow MCP interface | #10, #9, #18 | Open |
-| 4.3 | [#40](https://github.com/omavashia2005/.sct/issues/40) | Create experimental Wallet cards and share them through AirDrop | #24 | Built. The iPhone test is open. |
+| 4.3 | [#40](https://github.com/omavashia2005/.sct/issues/40) | Create experimental Wallet cards and share them through AirDrop | #24 | Built. The iPhone test is open. The cards are on the `experimental` branch only. |
 
 Issue #30 was workflow maintenance. Issue #21 stays closed, because demo rehearsal is outside development scope.
 
