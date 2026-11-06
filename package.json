@@ -22,7 +22,7 @@
     "build:icon": "bun build scripts/build-icon.ts --target node --format esm --external electron --outfile out/build-icon.mjs && electron out/build-icon.mjs",
     "package:mac": "bun run build && bun scripts/package-macos.ts",
     "install:cli": "bun scripts/install-cli.ts",
-    "build:sdk": "bun build packages/env/src/index.ts --target node --format esm --outfile packages/env/dist/index.js && bun node_modules/@typescript/native/bin/tsc -p packages/env/tsconfig.json",
+    "build:sdk": "bun build sdk/src/index.ts --target node --format esm --outfile sdk/dist/index.js && bun node_modules/@typescript/native/bin/tsc -p sdk/tsconfig.json",
     "lint": "eslint . --max-warnings 0",
     "relay:generate": "spacetime generate --lang typescript --out-dir src/main/relay --module-path packages/relay --yes",
     "react-doctor": "react-doctor --scope full --blocking error",

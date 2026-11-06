@@ -2,7 +2,7 @@ import { realpath } from 'node:fs/promises'
 import { isAbsolute, relative, sep } from 'node:path'
 import type { ProjectStore } from './projects'
 import type { Vault } from './vault'
-import type { EnvironmentMessage } from '../../packages/env/src/protocol'
+import type { EnvironmentMessage } from '../../sdk/src/protocol'
 
 export async function resolveProject(projects: ProjectStore, name?: string) {
   const saved = await projects.list()

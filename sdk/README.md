@@ -15,12 +15,12 @@ bun run build:sdk
 Install it in your application:
 
 ```sh
-bun add /absolute/path/to/.sct/packages/env
+bun add /absolute/path/to/.sct/sdk
 ```
 
 The package is not published to npm yet. Use this local installation until a release exists.
 Register your application's source folder and save its secrets in the .sct desktop app.
-Follow the [CLI setup](../../docs/runtime-injection.md) once to make `sct` available on `PATH`.
+Follow the [CLI setup](../docs/runtime-injection.md) once to make `sct` available on `PATH`.
 
 ## Load before application imports
 

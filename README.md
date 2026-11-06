@@ -58,7 +58,7 @@ To load secrets in code, build the SDK and add it to your application. The SDK i
 
 ```sh
 bun run build:sdk
-bun add /absolute/path/to/.sct/packages/env   # Run this command in your application folder.
+bun add /absolute/path/to/.sct/sdk   # Run this command in your application folder.
 ```
 
 Load the secrets before the application imports:
@@ -70,7 +70,7 @@ await loadEnv()
 await import('./server.js')
 ```
 
-See the [SDK guide](packages/env/README.md).
+See the [SDK guide](sdk/README.md).
 
 ## Share through the relay
 
@@ -128,7 +128,7 @@ Rules:
 
 ## Docs
 
-- [Runtime injection](docs/runtime-injection.md) and the [`@sct/env` SDK](packages/env/README.md)
+- [Runtime injection](docs/runtime-injection.md) and the [`@sct/env` SDK](sdk/README.md)
 - [Sharing](docs/sharing.md) and [relay setup](docs/relay.md)
 - [Agent Access](docs/agent-access.md) and the [Claude Code demo project](examples/claude-code/README.md)
 - [Architecture](docs/architecture.md), [vault storage](docs/storage.md), and the [glossary](docs/glossary.md)
