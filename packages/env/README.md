@@ -1,31 +1,24 @@
-# @sct/env
+# dotsct
 
 Load a registered project's `.sct` secrets into `process.env` and keep them current.
 This package has no runtime dependencies. It supports server-side TypeScript on macOS with Node.js 22.18 or later and Bun.
 It requires the installed `sct` command. Keychain access and decryption stay in the signed Electron main process.
 
-## Install from this repository
+## Install
 
-Build the package in the .sct repository:
-
-```sh
-bun run build:sdk
-```
-
-Install it in your application:
+Install the package in your application:
 
 ```sh
-bun add /absolute/path/to/.sct/packages/env
+bun add dotsct
 ```
 
-The package is not published to npm yet. Use this local installation until a release exists.
 Register your application's source folder and save its secrets in the .sct desktop app.
 Follow the [CLI setup](../../docs/runtime-injection.md) once to make `sct` available on `PATH`.
 
 ## Load before application imports
 
 ```ts
-import { loadEnv } from '@sct/env'
+import { loadEnv } from 'dotsct'
 
 await loadEnv()
 await import('./server.js')

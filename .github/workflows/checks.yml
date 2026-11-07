@@ -24,6 +24,8 @@ jobs:
             command: bun run typecheck:tsc
           - name: Storage tests
             command: bun run test
+          - name: npm publish dry run
+            command: bun run publish:check
           - name: Application build
             command: bun run build
           - name: Electron UI tests

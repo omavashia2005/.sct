@@ -1,5 +1,5 @@
 {
-  "name": "@sct/env",
+  "name": "dotsct",
   "version": "0.1.0",
   "description": "Load and refresh local .sct project secrets in Node.js and Bun.",
   "type": "module",
@@ -7,5 +7,5 @@
   "files": ["dist/index.js", "dist/index.d.ts", "README.md"],
   "engines": { "node": ">=22.18.0" },
   "os": ["darwin"],
-  "license": "UNLICENSED"
+  "license": "MIT"
 }
