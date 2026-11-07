@@ -9,7 +9,7 @@ const martian = Martian_Mono({ subsets: ["latin"], axes: ["wdth"], variable: "--
 
 export const metadata: Metadata = {
   title: ".sct",
-  description: ".sct replaces .env files with a Keychain-backed vault on your Mac, loads secrets at runtime through the @sct/env SDK, and sends them to teammates over AirDrop or an encrypted relay.",
+  description: ".sct replaces .env files with a Keychain-backed vault on your Mac, loads secrets at runtime through the dotsct SDK, and sends them to teammates over AirDrop or an encrypted relay.",
 }
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

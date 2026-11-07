@@ -6,8 +6,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { bootSource } from "@/lib/demo"
 
 export const metadata: Metadata = {
-  title: "@sct/env SDK guide",
-  description: "Install @sct/env, load a project's .sct secrets into process.env before your app imports, and react to saved changes without a restart.",
+  title: "dotsct SDK guide",
+  description: "Install dotsct, load a project's .sct secrets into process.env before your app imports, and react to saved changes without a restart.",
 }
 
 const sections = [
@@ -53,7 +53,7 @@ export default function SdkPage() {
       <section className="border-b border-rule py-16">
         <div className="container grid grid-cols-[minmax(0,1fr)] items-end gap-x-8 gap-y-10 lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <h1>@sct/env</h1>
+            <h1>dotsct</h1>
             <p className="lead mt-6 text-ink-2">Loads a project&apos;s .sct secrets into process.env and keeps them current.</p>
           </div>
           <div id="install" className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-4 lg:col-span-6">

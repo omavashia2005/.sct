@@ -5,7 +5,7 @@ Your project needs no `.env` file.
 
 - **Vault.** .sct keeps secrets in an encrypted local vault. Each value has its own key in macOS Keychain.
 - **Runtime injection.** `sct run -- <command>` gives the command its secrets as environment variables.
-- **SDK.** The dependency-free `@sct/env` package loads secrets into `process.env` and applies saved changes without a restart.
+- **SDK.** The dependency-free `dotsct` package loads secrets into `process.env` and applies saved changes without a restart.
 - **Sharing.** .sct sends encrypted secrets to a verified Mac through AirDrop or a relay.
 - **Agent Access.** Coding agents use secrets through a CLI and an MCP server. Each request opens a local approval window. Agents never receive secret values.
 
@@ -54,17 +54,16 @@ Then, in the app, add a project folder and its secrets. Run the project from its
 sct run -- bun run dev
 ```
 
-To load secrets in code, build the SDK and add it to your application. The SDK is not on npm yet.
+To load secrets in code, add the SDK to your application:
 
 ```sh
-bun run build:sdk
-bun add /absolute/path/to/.sct/packages/env   # Run this command in your application folder.
+bun add dotsct
 ```
 
 Load the secrets before the application imports:
 
 ```ts
-import { loadEnv } from '@sct/env'
+import { loadEnv } from 'dotsct'
 
 await loadEnv()
 await import('./server.js')
@@ -128,7 +127,7 @@ Rules:
 
 ## Docs
 
-- [Runtime injection](docs/runtime-injection.md) and the [`@sct/env` SDK](packages/env/README.md)
+- [Runtime injection](docs/runtime-injection.md) and the [`dotsct` SDK](packages/env/README.md)
 - [Sharing](docs/sharing.md) and [relay setup](docs/relay.md)
 - [Agent Access](docs/agent-access.md) and the [Claude Code demo project](examples/claude-code/README.md)
 - [Architecture](docs/architecture.md), [vault storage](docs/storage.md), and the [glossary](docs/glossary.md)

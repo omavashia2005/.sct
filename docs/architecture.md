@@ -11,7 +11,7 @@ This document describes the stable `main` branch. Experimental features, such as
 
 The project registry maps a project to its source folder. The vault root resolves `.sct/[project-name]/secrets.sct`.
 `sct run` decrypts locally and supplies the child environment before the command starts.
-The `@sct/env` SDK receives values through a signed helper's private pipes and updates `process.env`.
+The `dotsct` SDK receives values through a signed helper's private pipes and updates `process.env`.
 The project folder needs no `.env` file, replacement secret file, manifest, symlink, or FIFO. Both paths work offline.
 See [runtime injection](runtime-injection.md).
 

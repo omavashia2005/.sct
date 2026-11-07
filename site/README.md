@@ -2,8 +2,8 @@
 
 This folder is the .sct website. It has two pages:
 
-- `/` shows the vault, runtime injection through `@sct/env`, and AirDrop and relay sharing. Visitors can use a live demo.
-- `/sdk` is the `@sct/env` guide.
+- `/` shows the vault, runtime injection through `dotsct`, and AirDrop and relay sharing. Visitors can use a live demo.
+- `/sdk` is the `dotsct` guide.
 
 The site uses Next.js 16, Tailwind CSS 4, and shadcn components. The build is a static export. The site has no server code and needs no environment variables.
 
@@ -52,4 +52,4 @@ bun run preview
 
 ## Links on the page
 
-`lib/links.ts` contains the DMG, repository, and demo video URLs. The SDK install commands show `@sct/env` from npm. The package is not on npm yet.
+`lib/links.ts` contains the DMG, repository, and demo video URLs. The SDK install commands show `dotsct` from npm.

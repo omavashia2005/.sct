@@ -38,7 +38,7 @@ export const bootLog: LogLine[] = [
   { id: 3, kind: "command", text: "bun boot.ts" },
 ]
 
-export const bootSource = `import { loadEnv } from '@sct/env'
+export const bootSource = `import { loadEnv } from 'dotsct'
 import Stripe from 'stripe'
 
 // Reads this project's secrets from macOS Keychain into process.env.
