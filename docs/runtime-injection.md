@@ -88,11 +88,10 @@ A process that moves to another session stays under the control of the program t
 
 ## TypeScript SDK: load inside your code
 
-The dependency-free [`@sct/env` SDK](../packages/env/README.md) loads the same values inside your process.
+The dependency-free [`dotsct` SDK](../packages/env/README.md) loads the same values inside your process.
 It keeps `process.env` current without a restart.
 
-- Build the SDK with `bun run build:sdk`.
-- Install it with `bun add /absolute/path/to/.sct/packages/env`.
+- Install it with `bun add dotsct`.
 - It needs macOS, Node.js 22.18 or later or Bun, and the installed `sct` command on `PATH`.
 
 The SDK starts a signed helper through private stdin and stdout pipes. It receives only the values of the selected project.

@@ -97,16 +97,16 @@ function RuntimePane({ source }: { source: ReactNode }) {
   const { env, changed, log } = useVault()
   return (
     <section aria-label="The running app" className="flex min-w-0 flex-col">
-      <Tabs defaultValue="terminal">
+      <Tabs defaultValue="source">
         <TabsList className="px-3">
-          <TabsTrigger value="terminal">terminal</TabsTrigger>
           <TabsTrigger value="source">boot.ts</TabsTrigger>
+          <TabsTrigger value="terminal">terminal</TabsTrigger>
         </TabsList>
-        <TabsContent value="terminal">
-          <Session log={log} />
-        </TabsContent>
         <TabsContent value="source">
           <CodeBlockContent className="min-h-56 text-sm md:text-md">{source}</CodeBlockContent>
+        </TabsContent>
+        <TabsContent value="terminal">
+          <Session log={log} />
         </TabsContent>
       </Tabs>
       <div className="mt-auto border-t border-rule p-6">

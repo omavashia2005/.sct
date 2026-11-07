@@ -27,7 +27,7 @@ The docs use some words with one fixed meaning:
 
 **CLI** — The `sct` command. `sct run -- <command>` injects secrets. `sct agent` sends Agent Access requests.
 
-**TypeScript SDK** — The dependency-free `@sct/env` package. `await loadEnv()` keeps `process.env` current. `onChange` lets an app recreate clients that keep credentials.
+**TypeScript SDK** — The dependency-free `dotsct` package. `await loadEnv()` keeps `process.env` current. `onChange` lets an app recreate clients that keep credentials.
 
 **Loader compatibility** — Existing loaders read inherited environment variables. A `.env` parser cannot read `secrets.sct`.
 

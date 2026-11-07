@@ -41,7 +41,7 @@ const safeguards = [
 
 const needs = [
   { need: "macOS on Apple Silicon", why: "The DMG comes from the latest GitHub release." },
-  { need: "Node.js 22.18 or later, or Bun", why: "The @sct/env SDK runs in server-side code." },
+  { need: "Node.js 22.18 or later, or Bun", why: "The dotsct SDK runs in server-side code." },
   { need: "The sct command on PATH", why: "The SDK starts it. The SDK guide covers the setup." },
   { need: "A coding agent, if you use one", why: "Agents use secrets through the sct CLI or MCP server. Each request opens an approval window on your Mac, and the agent never sees a value." },
 ]

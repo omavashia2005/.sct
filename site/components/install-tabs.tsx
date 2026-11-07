@@ -3,10 +3,10 @@ import { CodeBlockCopyButton } from "@/components/ui/code-block"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const commands = [
-  { manager: "npm", command: "npm install @sct/env" },
-  { manager: "pnpm", command: "pnpm add @sct/env" },
-  { manager: "bun", command: "bun add @sct/env" },
-  { manager: "yarn", command: "yarn add @sct/env" },
+  { manager: "npm", command: "npm install dotsct" },
+  { manager: "pnpm", command: "pnpm add dotsct" },
+  { manager: "bun", command: "bun add dotsct" },
+  { manager: "yarn", command: "yarn add dotsct" },
 ]
 
 export function InstallTabs() {
