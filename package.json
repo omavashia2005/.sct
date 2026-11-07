@@ -23,6 +23,7 @@
     "package:mac": "bun run build && bun scripts/package-macos.ts",
     "install:cli": "bun scripts/install-cli.ts",
     "build:sdk": "bun build packages/env/src/index.ts --target node --format esm --outfile packages/env/dist/index.js && bun node_modules/@typescript/native/bin/tsc -p packages/env/tsconfig.json",
+    "publish:check": "bun run build:sdk && cd packages/env && npm publish --dry-run",
     "lint": "eslint . --max-warnings 0",
     "relay:generate": "spacetime generate --lang typescript --out-dir src/main/relay --module-path packages/relay --yes",
     "react-doctor": "react-doctor --scope full --blocking error",
