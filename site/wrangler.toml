@@ -1,0 +1,5 @@
+# Cloudflare Pages serves the static export that `bun run build` writes to out/.
+"$schema" = "./node_modules/wrangler/config-schema.json"
+name = "sct"
+pages_build_output_dir = "./out"
+compatibility_date = "2026-11-06"

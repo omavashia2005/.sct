@@ -1,5 +1,38 @@
 [
  {
+  "scope": "page",
+  "shape": "Narrative Workflow",
+  "theme": "terminal",
+  "axes": "dark/mono/chromatic-green",
+  "hero": "Counter (/), Banner (/sdk)",
+  "nav": "edge-aligned bar",
+  "footer": "colophon block",
+  "imagery": "the product built (interactive vault, runtime and sharing demos)",
+  "photos": [],
+  "entry": "2026-11-06 landing page and SDK guide in site/",
+  "fingerprint": "page/narrative/counter/diff/switcher/table",
+  "sections": [
+   "hero with live vault and runtime demo",
+   "1 diff of the project folder",
+   "2 install tabs beside boot.ts",
+   "3 sharing demo with AirDrop and relay, safeguards",
+   "requirements table",
+   "download close with first-launch steps",
+   "colophon footer"
+  ],
+  "signature": "a saved secret reaching process.env live",
+  "waived": [
+   "47c",
+   "84",
+   "81",
+   "44c"
+  ],
+  "prompt": "Landing page for .sct on main: Keychain-backed .env replacement through the SDK, AirDrop and relay sharing, live demo, SDK page, Next.js and shadcn on Cloudflare Pages",
+  "date": "2026-11-06",
+  "mode": "build",
+  "draw": "d783d2"
+ },
+ {
   "scope": "app",
   "shape": "app screen",
   "theme": "terminal",
