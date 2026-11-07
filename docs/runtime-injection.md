@@ -6,8 +6,15 @@ In both paths, the signed Electron main process owns Keychain access and decrypt
 
 ## Set up one time
 
-1. Build the signed app: `bun run package:mac`. If the build reports a missing identity, do the [local signing setup](macos-signing.md).
-2. Install the `sct` command: `bun run install:cli`.
+1. Put the app in its long-term location. A downloaded app usually stays at `/Applications/sct.app`.
+   For a source build, run `bun run package:mac`. If the build reports a missing identity, do the [local signing setup](macos-signing.md).
+2. Install the `sct` command from that app copy. For an app in Applications, run:
+
+   ```sh
+   /Applications/sct.app/Contents/MacOS/sct install
+   ```
+
+   For a source build that stays in `dist`, run `bun run install:cli` instead.
 3. If the installer tells you that `~/.local/bin` is not in `PATH`, add this line to `~/.zshrc`:
 
    ```sh
@@ -15,7 +22,7 @@ In both paths, the signed Electron main process owns Keychain access and decrypt
    ```
 
 4. Open a new terminal.
-5. Open `dist/sct-darwin-arm64/sct.app`. On an Intel Mac, use `sct-darwin-x64`.
+5. Open the same app copy that you used to install the command.
 6. Register your existing project folder.
 7. Save the variables of the project under **Open secrets**.
 
@@ -24,12 +31,14 @@ The desktop window can be open or closed during injection.
 
 ### The `sct` command script
 
-The installer writes `~/.local/bin/sct` as a shell script. The script runs the signed executable with `exec`.
+The installer writes `~/.local/bin/sct` as a shell script. The script runs the same app executable with `exec`.
 Electron finds its helper apps only from the real executable path. Thus the command is not a symbolic link.
 
 - The installer replaces an earlier .sct symbolic link to the same executable.
+- The installer replaces an earlier .sct launcher when you install from another copy of the app.
 - The installer keeps other commands. It rejects a script or a link for another application.
 - After a rebuild, the script uses the same app location. If you move the app, install the command again.
+- Use the same app copy for the desktop window and the command. Keychain can request access when another app copy reads an existing item.
 
 ## CLI: one command in your project
 
