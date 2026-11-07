@@ -1,0 +1,58 @@
+/* Hallmark · shape: Narrative Workflow · genre: atmospheric · theme: Terminal (deal by request) · job: try · draw: d783d2
+ * hero: Counter (/), Banner (/sdk) · nav: edge-aligned bar · footer: colophon block · imagery: the product built (interactive demo) · signature: a saved secret reaching process.env live
+ * axes: dark/mono/chromatic-green · posture: committed · contrast: pass · fold: pass · v2.0.0 */
+/* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4 · weakest: H, the full-width demo sits between the head and the two actions, so the actions fall below the first screen */
+/* Hallmark · finish-review: in-thread · 3 findings · 3 resolved · gap: none */
+/* Hallmark · swap nav · the draw dealt a floating pill, and the project rules ban pills, so the nav is a flat edge-aligned bar */
+/* Hallmark · waive 47c · the hero figure holds working vault and terminal controls · a browser cannot reach Keychain, so the vault demo is built rather than captured */
+/* Hallmark · palette exception: the user chose multi-hue syntax highlighting. Code tokens take inline colors from Shiki's github-dark-default theme. The rest of the page keeps the green role tokens. */
+/* Hallmark · waive 78 · section heads render at 39px under a 48px hero head · the user asked for one-line heads, and at 52px the second section head wraps at 1440px */
+/* Hallmark · waive 84 · the user declined captures of the desktop app · the live vault demo is the requested picture of the Keychain vault */
+/* Hallmark · waive 81 · the flagged data-slot is a shadcn hook on a table cell, not a picture · this page has no picture slots */
+/* Hallmark · waive 44c · the /sdk hero is the Banner stamped above, so the guide's first part starts above the fold · readers come to the SDK guide for its parts, not a hero */
+/* Hallmark · dismissed 58 · the 93 words on /sdk include the sticky six-link page index and a code sample, which repeat in every window */
+/* Hallmark · dismissed 77 · the SDK guide is a reference page whose six parts sit in one column under a Banner hero */
+/* Hallmark · dismissed F18 · the flagged slot is the shadcn checkbox hook, which is meant to stay 20px */
+@import "tailwindcss";
+@import "shadcn/tailwind.css";
+@import "./tokens.css";
+@import "./base.css" layer(base);
+
+/* Tailwind ships its own container with breakpoint caps. This keeps Hallmark's one capped container at every width. */
+@utility container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+@layer base {
+  body { font-stretch: var(--stretch-body); font-variant-numeric: tabular-nums; line-height: 1.65; }
+  h1, h2, h3 { font-stretch: var(--stretch-display); line-height: 1.12; }
+  code, pre, kbd { font-family: var(--font-body); }
+  ::selection { background: var(--color-accent-wash); }
+}
+
+/* The session and the transfer track are the theme's Range pieces, so they live here rather than in utility strings. */
+@layer components {
+  .well { background: var(--color-paper-2); border: var(--rule-hair) solid var(--color-rule); }
+  .prompt::before { content: "$ "; color: var(--color-muted); }
+
+
+  .caret { display: inline-block; width: 0.6em; height: 1.1em; vertical-align: text-bottom; background: var(--color-accent); animation: caret-blink 1s steps(1) 5; }
+  @keyframes caret-blink { 50% { opacity: 0; } }
+
+  .track { position: relative; height: var(--space-2xl); }
+  .track::before { content: ""; position: absolute; inset-inline: 0; top: 50%; border-top: var(--rule-hair) dashed var(--color-rule-2); }
+  .track-rider { position: absolute; inset-block: 0; left: 0; width: calc(100% - 12ch); display: flex; align-items: center; transition: transform 900ms steps(9, end); }
+  .track-rider[data-at="middle"] { transform: translateX(50%); }
+  .track-rider[data-at="end"] { transform: translateX(100%); }
+
+  /* The boot session types itself once with CSS alone, so it still shows with scripting off. */
+  .type-in { animation: type-in 1ms steps(1) both; animation-delay: calc(var(--i, 0) * 350ms); }
+  @keyframes type-in { from { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .type-in { animation: none; } }
+
+  .flash { animation: flash 1.4s steps(1) 1; }
+  @keyframes flash { 0% { background: var(--color-accent-wash); } 100% { background: transparent; } }
+}
