@@ -19,6 +19,7 @@ export function SiteHeader() {
           <nav aria-label="Main" className="flex items-stretch">
             <Link href="/#how" className={`${navLink} max-sm:hidden`}>How it works</Link>
             <Link href="/sdk" className={navLink} aria-current={pathname === "/sdk" ? "page" : undefined}>SDK</Link>
+            <Link href="/relay" className={`${navLink} max-md:hidden`} aria-current={pathname === "/relay" ? "page" : undefined}>Relay</Link>
             <a href={links.repo} className={navLink}>GitHub</a>
           </nav>
         </div>

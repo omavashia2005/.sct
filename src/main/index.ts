@@ -14,6 +14,7 @@ import { AgentAccess } from './agent-access'
 import { identifyCaller } from './caller'
 import { streamEnvironment } from './runtime'
 import { Sharing } from './sharing'
+import { installCli } from './cli-installer'
 import type { Relay } from './relay-connection'
 import type { Reply } from '../shared/api'
 
@@ -110,6 +111,15 @@ function reportStartupError(error: unknown): void {
 app.setName('.sct')
 nativeTheme.themeSource = 'dark'
 app.whenReady().then(async () => {
+  if (launchArguments[0] === 'install') {
+    if (launchArguments.length !== 1) throw new Error('Usage: sct install. Install this app as the sct command.')
+    app.dock?.hide()
+    const destination = join(homedir(), '.local', 'bin', 'sct')
+    await installCli(process.execPath, destination)
+    await writeCliOutput(`Installed ${destination}`)
+    app.exit(0)
+    return
+  }
   if (launchArguments[0] === 'agent' || launchArguments[0] === 'mcp') {
     app.dock?.hide()
     app.exit(await runAgentSession())
@@ -198,7 +208,7 @@ app.whenReady().then(async () => {
     if (BrowserWindow.getAllWindows().length === 0) void createWindow().catch(reportStartupError)
   })
 }).catch((error: unknown) => {
-  if (['run', '_env', 'agent', 'mcp', 'skills'].includes(launchArguments[0])) {
+  if (['install', 'run', '_env', 'agent', 'mcp', 'skills'].includes(launchArguments[0])) {
     console.error(error instanceof Error ? error.message : 'The project command could not start.')
     app.exit(1)
   } else {

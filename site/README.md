@@ -1,9 +1,10 @@
 # .sct landing page
 
-This folder is the .sct website. It has two pages:
+This folder is the .sct website. It has three pages:
 
 - `/` shows the vault, runtime injection through `dotsct`, and AirDrop and relay sharing. Visitors can use a live demo.
 - `/sdk` is the `dotsct` guide.
+- `/relay` explains the hosted relay and separate database setup.
 
 The site uses Next.js 16, Tailwind CSS 4, and shadcn components. The build is a static export. The site has no server code and needs no environment variables.
 

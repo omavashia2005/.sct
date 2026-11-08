@@ -9,7 +9,7 @@ export function SiteFooter() {
       <div className="container py-16">
         <p className="max-w-[60ch] text-ink-2">
           The <span className="font-bold text-ink">.sct</span> source, docs and DMG builds are on <a href={links.repo} className={footLink}>GitHub</a>. Start with the{" "}
-          <Link href="/sdk" className={footLink}>SDK guide</Link> or the <a href={links.video} className={footLink}>demo video</a>.
+          <Link href="/sdk" className={footLink}>SDK guide</Link>, the <Link href="/relay" className={footLink}>relay guide</Link>, or the <a href={links.video} className={footLink}>demo video</a>.
         </p>
       </div>
     </footer>

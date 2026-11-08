@@ -20,9 +20,9 @@ const sections = [
 ]
 
 const setup = [
-  { command: "bun run package:mac", note: "Builds the signed app from the repo." },
-  { command: "bun run install:cli", note: "Writes the sct command to ~/.local/bin." },
-  { command: "open dist/sct-darwin-arm64/sct.app", note: "Register the folder and save its secrets." },
+  { command: "/Applications/sct.app/Contents/MacOS/sct install", note: "Installs the command from the app in Applications." },
+  { command: "export PATH=\"$HOME/.local/bin:$PATH\"", note: "Add this line to ~/.zshrc if sct is not on PATH." },
+  { command: "open /Applications/sct.app", note: "Register the folder and save its secrets in the same app copy." },
 ]
 
 const options = [
@@ -84,6 +84,7 @@ export default function SdkPage() {
                 </li>
               ))}
             </ol>
+            <p className="text-sm text-muted">Use one app copy for the desktop window and the command. This keeps its Keychain access consistent.</p>
           </Part>
 
           <Part id="load" title="Load before imports" intro="Static imports run before loadEnv(). Import modules that read process.env on load after it.">
